@@ -1,19 +1,19 @@
 let canvas = document.getElementById("quadro")
 
-// Inicia o contexto do canvas para desenhar.
-let ctx = canvas.getContext("2d")
+// Inicia o contexto do canvas para desenhar
+let ctx = canvas.getContext("2d");
 
 // Define o estilo de preenchimento para a cor azul
 ctx.fillStyle = "#0000ff"
 
-// Desenha um quadrado, com o estilo de preenchimento configurado (azul)
+// Desenha um retangulo, com o estilo de preenchimento configurado (azul)
 ctx.fillRect(0, 0, 100, 100);
 
 // Define o estilo de preenchimento para a cor magenta
 ctx.fillStyle = "rgb(255, 0, 255)"
 
-// Desenha um quadrado, com o estilo de preenchimento configurado (magenta)
-ctx.fillRect(200, 200, 100, 100);
+// Desenha um retangulo, com o estilo de preenchimento configurado (magenta)
+ctx.fillRect(200, 200, 100, 100)
 
 // Apagar uma area do canvas
 ctx.clearRect(50, 50, 50, 50)
@@ -24,34 +24,33 @@ let y = 0
 
 let animacao;
 
-let direcaoVertical;
-let direcaoHorizontal;
-
+let direcaoVertical = "baixo";
+let direcaoHorizontal = "direita";
 
 ctx.fillStyle = "#000"
 
 function desenhar() {
     ctx.clearRect(0, 0, 800, 600);
 
-    ctx.fillRect(x, y, 50, 50);
+    ctx.fillRect(x, y, 50, 50)
 
     if (direcaoVertical == "cima") {
         y--
-    }else(direcaoVertical == "baixo") {
+    } else if (direcaoVertical == "baixo") {
         y++
     }
 
     if (direcaoHorizontal == "esquerda") {
         x--
-    }else if(direcaoHorizontal == "direita"){
+    } else if (direcaoHorizontal == "direita") {
         x++
     }
 
-    if(y == 0){
+    if(y == 0) {
         direcaoVertical = "baixo"
     }
 
-    if(y == 550) {
+    if (y == 550) {
         direcaoVertical = "cima"
     }
 
@@ -60,14 +59,13 @@ function desenhar() {
     }
 
     if (x == 750) {
-        direcaoHorizontal = "esquerda"
+        direcaoHorizontal = "esquerda" 
     }
 
-    x++
+    // x++
     // y++
 
     animacao = requestAnimationFrame(desenhar)
-
 }
 
 desenhar()
